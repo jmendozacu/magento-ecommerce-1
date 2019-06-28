@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="SimplifiedMagento\FirstModule\Api\PencilInterface" type="SimplifiedMagento\FirstModule\Model\Pencil" />
+    <preference for="SimplifiedMagento\FirstModule\Api\ColorInterface" type="SimplifiedMagento\FirstModule\Model\Red" />
+    <preference for="SimplifiedMagento\FirstModule\Api\SizeInterface" type="SimplifiedMagento\FirstModule\Model\Small" />
+    <preference for="SimplifiedMagento\FirstModule\Api\BrightnessInterface" type="SimplifiedMagento\FirstModule\Model\Low" />
+
+    <type name="SimplifiedMagento\FirstModule\Model\Pencil">
+        <arguments>
+            <argument name="color" xsi:type="object">SimplifiedMagento\FirstModule\Model\Yellow</argument>
+            <argument name="size" xsi:type="object">SimplifiedMagento\FirstModule\Model\Big</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="yellow_High" type="SimplifiedMagento\FirstModule\Model\Yellow">
+        <arguments>
+            <argument name="brightness" xsi:type="object">SimplifiedMagento\FirstModule\Model\Medium</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="SimplifiedMagento\FirstModule\Model\Student">
+        <arguments>
+            <argument name="name" xsi:type="string">Hero</argument>
+            <argument name="age" xsi:type="number">24</argument>
+            <argument name="marks" xsi:type="array">
+                <item name="Maths" xsi:type="number">56</item>
+                <item name="Science" xsi:type="number">55</item>
+                <item name="Geograpy" xsi:type="number">65</item>
+            </argument>
+
+        </arguments>
+    </type>
+
+    <type name="SimplifiedMagento\FirstModule\Controller\Page\HelloWorld">
+        <plugin name="pluginOnExecute" type="SimplifiedMagento\FirstModule\Plugin\PluginSolutions" disabled="true" sortOrder="10" />
+        <plugin name="plugin1OnExecute" type="SimplifiedMagento\FirstModule\Plugin\Plugin1Solutions" disabled="true" sortOrder="20" />
+        <arguments>
+            <argument name="heavyService" xsi:type="object">SimplifiedMagento\FirstModule\Model\HeavyService\Proxy</argument>
+        </arguments>
+
+    </type>
+
+</config>
+

@@ -1,0 +1,19 @@
+<?php
+$viewModel = $block->getData('view_model');
+
+$hello = $viewModel->getHelloWorld();
+$helloArray = $viewModel->getArrayResult();
+
+?>
+
+<?php foreach($helloArray as $helloworld): ?>
+<ul>
+    <li><?php echo $helloworld; ?></li>
+</ul>
+
+<?php endforeach; ?>
+
+<h2><?php echo $viewModel->getProduct() ?></h2>
+
+<h1><?php echo $hello ?></h1>
+

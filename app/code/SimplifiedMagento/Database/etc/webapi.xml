@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <!-- Cms Page -->
+    <route url="/V1/affiliate_members" method="GET">
+        <service class="SimplifiedMagento\Database\Api\AffiliateMembersRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route url="/V1/affiliate_members/:id" method="GET">
+        <service class="SimplifiedMagento\Database\Api\AffiliateMembersRepositoryInterface" method="getAffiliateMemberById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route url="/V1/affiliate_members" method="POST">
+        <service class="SimplifiedMagento\Database\Api\AffiliateMembersRepositoryInterface" method="saveAffiliateMember"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route url="/V1/affiliate_members/:id" method="PUT">
+        <service class="SimplifiedMagento\Database\Api\AffiliateMembersRepositoryInterface" method="saveAffiliateMember"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route url="/V1/affiliate_members/:id" method="DELETE">
+        <service class="SimplifiedMagento\Database\Api\AffiliateMembersRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route url="/V1/affiliate_members/search" method="GET">
+        <service class="SimplifiedMagento\Database\Api\AffiliateMembersRepositoryInterface" method="getSearchResultsList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+</routes>c
