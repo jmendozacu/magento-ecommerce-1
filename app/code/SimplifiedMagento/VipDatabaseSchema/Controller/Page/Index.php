@@ -47,8 +47,18 @@ class Index extends Action
         $vipMember->save();*/
 
        //Delete operation
-        $member = $vipMember->load(4);
-        $member->delete();
+        /*$member = $vipMember->load(4);
+        $member->delete();*/
+
+        //Getting all data through collection
+        $collection = $vipMember->getCollection()
+        ->addFieldToSelect(array('name','status'))
+        ->addFieldToFilter('status',array('eq' => 1));
+
+        foreach ($collection as $item){
+            print_r($item->getData());
+            echo "<br>";
+        }
 
 
     }
