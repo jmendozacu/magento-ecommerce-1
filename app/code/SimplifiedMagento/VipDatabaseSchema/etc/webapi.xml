@@ -15,4 +15,32 @@
         </resources>
     </route>
 
+    <route url="/V1/vip_member/:id" method="GET">
+        <service class="SimplifiedMagento\VipDatabaseSchema\Api\VipMemberRepositoryInterface" method="getVipMemberById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route url="/V1/vip_member" method="POST">
+        <service class="SimplifiedMagento\VipDatabaseSchema\Api\VipMemberRepositoryInterface" method="saveAffiliateMember"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route url="/V1/vip_member/:id" method="PUT">
+        <service class="SimplifiedMagento\VipDatabaseSchema\Api\VipMemberRepositoryInterface" method="saveAffiliateMember"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route url="/V1/vip_member/:id" method="DELETE">
+        <service class="SimplifiedMagento\VipDatabaseSchema\Api\VipMemberRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
 </routes>

@@ -37,7 +37,7 @@ class VipMember extends AbstractModel implements VipMemberInterface
      */
     public function getAddress()
     {
-        return $this->getData(VipMemberInterface::STATUS);
+        return $this->getData(VipMemberInterface::ADDRESS);
     }
 
     /**
@@ -45,7 +45,7 @@ class VipMember extends AbstractModel implements VipMemberInterface
      */
     public function getPhoneNumber()
     {
-        return $this->getData(VipMemberInterface::STATUS);
+        return $this->getData(VipMemberInterface::PHONE_NUMBER);
     }
 
     /**
