@@ -44,7 +44,6 @@ class AffiliateMembersRepository implements AffiliateMembersRepositoryInterface
      */
     public function getList()
     {
-
         return $this->collectionFactory->create()->getItems();
     }
 
