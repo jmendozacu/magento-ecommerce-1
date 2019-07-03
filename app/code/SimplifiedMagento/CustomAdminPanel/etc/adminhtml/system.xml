@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="Custom_Admin_Panel" sortOrder="120" translate="label">
+            <label>Custom Admin Tab</label>
+        </tab>
+        <section id="AdminFirstSection" translate="label" sortOrder="100" showInWebsite="1" showInStore="1" showInDefault="1">
+            <label>Admin First Section</label>
+            <tab>Custom_Admin_Panel</tab>
+            <resource>SimplifiedMagento_CustomAdminPanel::parent</resource>
+            <group id="AdminFirstGroup" showInDefault="1" showInStore="1" translate="label">
+                <label>First Group</label>
+                <field id="FirstField" showInWebsite="1" showInDefault="1" translate="1" type="text" sortOrder="100">
+                    <label>First text field</label>
+                </field>
+
+                <field id="SecondField" showInWebsite="1" showInDefault="1" translate="1" type="select" sortOrder="100">
+                    <label>Second select field</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="ThirdField" showInWebsite="1" showInDefault="1" translate="1" type="multiselect" sortOrder="100">
+                    <label>Third multiselect field</label>
+                    <source_model>SimplifiedMagento\CustomAdminPanel\Model\AdminArray</source_model>
+                </field>
+
+                <field id="FourthField" showInWebsite="1" showInDefault="1" translate="1" type="select" sortOrder="100">
+                    <label>Fourth select field</label>
+                    <source_model>SimplifiedMagento\CustomAdminPanel\Model\AdminArray</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
