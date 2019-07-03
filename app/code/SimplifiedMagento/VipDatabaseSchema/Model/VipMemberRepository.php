@@ -3,11 +3,14 @@
 
 namespace SimplifiedMagento\VipDatabaseSchema\Model;
 
+use Magento\Framework\Api\SearchCriteria;
 use SimplifiedMagento\VipDatabaseSchema\Api\Data;
 use SimplifiedMagento\VipDatabaseSchema\Api\VipMemberRepositoryInterface;
 use SimplifiedMagento\VipDatabaseSchema\Model\ResourceModel\VipMember\CollectionFactory;
 use SimplifiedMagento\VipDatabaseSchema\Model\VipMemberFactory;
 use SimplifiedMagento\VipDatabaseSchema\Model\ResourceModel\VipMember;
+use SimplifiedMagento\VipDatabaseSchema\Api\Data\VipMemberSearchResultInterfaceFactory;
+use Magento\framework\Api\SearchCriteria\CollectionProcessor;
 
 class VipMemberRepository implements VipMemberRepositoryInterface
 {
@@ -17,11 +20,19 @@ class VipMemberRepository implements VipMemberRepositoryInterface
 
     private $vipMember;
 
-    public function __construct(CollectionFactory $collectionFactory, VipMemberFactory $vipMemberFactory, VipMember $vipMember)
+    private $resultInterfaceFactory;
+
+    private $collectionProcessor;
+
+    public function __construct(CollectionFactory $collectionFactory, VipMemberFactory $vipMemberFactory, VipMember $vipMember,
+                                VipMemberSearchResultInterfaceFactory $resultInterfaceFactory,
+                                CollectionProcessor $collectionProcessor)
     {
         $this->collectionFactory = $collectionFactory;
         $this->vipMemberFactory = $vipMemberFactory;
         $this->vipMember = $vipMember;
+        $this->resultInterfaceFactory = $resultInterfaceFactory;
+        $this->collectionProcessor = $collectionProcessor;
     }
 
     /**
@@ -71,5 +82,20 @@ class VipMemberRepository implements VipMemberRepositoryInterface
     {
         $member= $this->vipMemberFactory->create()->load($id);
         $member->delete();
+    }
+
+    /**
+     * @param SearchCriteria $searchCriteria
+     * @return \SimplifiedMagento\VipDatabaseSchema\Api\Data\VipMemberSearchResultInterface
+     */
+    public function getSearchResultsList(SearchCriteria $searchCriteria)
+    {
+        $collection = $this->vipMemberFactory->create()->getCollection();
+        $this->collectionProcessor->process($searchCriteria,$collection);
+        $searchResults = $this->resultInterfaceFactory->create();
+        $searchResults->setSearchCriteria($searchCriteria);
+        $searchResults->setItems($collection->getData());
+        $searchResults->setTotalCount($collection->getSize());
+        return $searchResults;
     }
 }

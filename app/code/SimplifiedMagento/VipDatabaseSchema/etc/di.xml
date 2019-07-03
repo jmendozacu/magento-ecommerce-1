@@ -9,5 +9,7 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="SimplifiedMagento\VipDatabaseSchema\Api\Data\VipMemberInterface" type="SimplifiedMagento\VipDatabaseSchema\Model\VipMember" />
     <preference for="SimplifiedMagento\VipDatabaseSchema\Api\VipMemberRepositoryInterface" type="SimplifiedMagento\VipDatabaseSchema\Model\VipMemberRepository" />
+    <preference for="SimplifiedMagento\VipDatabaseSchema\Api\Data\VipMemberSearchResultInterface" type="Magento\Framework\Api\SearchResults" />
+
 </config>
 

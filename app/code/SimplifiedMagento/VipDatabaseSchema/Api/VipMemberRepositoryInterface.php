@@ -4,6 +4,8 @@
 namespace SimplifiedMagento\VipDatabaseSchema\Api;
 
 
+use Magento\Framework\Api\SearchCriteria;
+
 interface VipMemberRepositoryInterface
 {
     /**
@@ -28,5 +30,11 @@ interface VipMemberRepositoryInterface
      * @return void
      */
     public function deleteById($id);
+
+    /**
+     * @param SearchCriteria $searchCriteria
+     * @return \SimplifiedMagento\VipDatabaseSchema\Api\Data\VipMemberSearchResultInterface
+     */
+    public function getSearchResultsList(SearchCriteria $searchCriteria);
 
 }

@@ -43,4 +43,11 @@
         </resources>
     </route>
 
+    <route url="/V1/vip_member/search" method="GET">
+        <service class="SimplifiedMagento\VipDatabaseSchema\Api\VipMemberRepositoryInterface" method="getSearchResultsList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
 </routes>

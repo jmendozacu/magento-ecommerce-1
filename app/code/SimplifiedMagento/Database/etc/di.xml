@@ -10,6 +10,6 @@
     <preference for="SimplifiedMagento\Database\Api\Data\AffiliateMembersInterface" type="SimplifiedMagento\Database\Model\AffiliateMembers" />
     <preference for="SimplifiedMagento\Database\Api\AffiliateMembersRepositoryInterface" type="SimplifiedMagento\Database\Model\AffiliateMembersRepository" />
     <preference for="SimplifiedMagento\Database\Api\Data\AffiliateMembersSearchResultInterface"
-                type="Magento\Framework\Api\Search\SearchResults" />
+                type="Magento\Framework\Api\SearchResults" />
 </config>
 
