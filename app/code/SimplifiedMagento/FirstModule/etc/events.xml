@@ -7,4 +7,8 @@
         <observer name="greeting" instance="SimplifiedMagento\FirstModule\Observer\OurObserver" />
     </event>
 
+    <event name="review_save_after">
+        <observer name="review_save" instance="SimplifiedMagento\FirstModule\Observer\PostReview" />
+    </event>
+
 </config>
