@@ -1,0 +1,13 @@
+<config>
+
+    <group id="product_sync">
+
+        <job name="product_sync_sfdc" instance="SimplifiedMagento\SFDCProductSync\Model\SFDCProductDataSync" method="productDataSync">
+
+            <schedule>* 1 * * *</schedule>
+
+        </job>
+
+    </group>
+
+</config>
