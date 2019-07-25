@@ -1,0 +1,10 @@
+<?php
+/** @var \EcommerceBuilder\PlatformSetup\Block\Data $block */
+?>
+<?php foreach ($block->getItems() as $item): ?>
+<div>
+    <p> Name: <?php echo $item->getAuthorName(); ?></p>
+    <p> Email: <?php echo $item->getEmail(); ?></p>
+    <p> Age: <?php echo $item->getAge(); ?></p>
+</div>
+<?php endforeach; ?>
