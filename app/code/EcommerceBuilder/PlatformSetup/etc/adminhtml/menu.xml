@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="EcommerceBuilder_PlatformSetup::author" title="Author"
+             module="EcommerceBuilder_PlatformSetup" resource="EcommerceBuilder_PlatformSetup::author"
+             translate="title" sortOrder="900" action="author"/>
+    </menu>
+</config>
