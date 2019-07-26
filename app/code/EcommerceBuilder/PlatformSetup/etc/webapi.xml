@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<routes>
+    <route url="/V1/author" method="GET">
+        <service class="EcommerceBuilder\PlatformSetup\Api\AuthorRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>

@@ -7,4 +7,6 @@
             </argument>
         </arguments>
     </type>
+    <preference for="EcommerceBuilder\PlatformSetup\Api\Data\AuthorInterface" type="EcommerceBuilder\PlatformSetup\Model\Author"/>
+    <preference for="EcommerceBuilder\PlatformSetup\Api\AuthorRepositoryInterface" type="EcommerceBuilder\PlatformSetup\Model\AuthorRepository"/>
 </config>
