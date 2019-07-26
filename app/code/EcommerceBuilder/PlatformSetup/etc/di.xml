@@ -9,4 +9,11 @@
     </type>
     <preference for="EcommerceBuilder\PlatformSetup\Api\Data\AuthorInterface" type="EcommerceBuilder\PlatformSetup\Model\Author"/>
     <preference for="EcommerceBuilder\PlatformSetup\Api\AuthorRepositoryInterface" type="EcommerceBuilder\PlatformSetup\Model\AuthorRepository"/>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="author_items_grid_data_source" xsi:type="string">EcommerceBuilder\PlatformSetup\Model\ResourceModel\Author\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
 </config>
