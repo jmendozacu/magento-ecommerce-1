@@ -9,21 +9,36 @@
 namespace EcommerceBuilder\PlatformSetup\Cron;
 
 use EcommerceBuilder\PlatformSetup\Model\AuthorFactory;
+use EcommerceBuilder\PlatformSetup\Model\Config;
 
 class AddAuthor
 {
     private $authorFactory;
 
-    public function __construct(AuthorFactory $authorFactory)
+    private $config;
+
+    /**
+     * AddAuthor constructor.
+     * @param AuthorFactory $authorFactory
+     * @param Config $config
+     */
+    public function __construct(AuthorFactory $authorFactory, Config $config)
     {
         $this->authorFactory = $authorFactory;
+        $this->config = $config;
     }
 
-    public function execute(){
-        $this->authorFactory->create()
-            ->setAuthorName('Author1'.time())
-            ->setEmail(time().'author@gmail.com')
-            ->setAffliation('Company'.time())
-            ->save();
+    /**
+     *Save author info
+     */
+    public function execute()
+    {
+        if ($this->config->isEnabled()) {
+            $this->authorFactory->create()
+                ->setAuthorName('Author1' . time())
+                ->setEmail(time() . 'author@gmail.com')
+                ->setAffliation('Company' . time())
+                ->save();
+        }
     }
 }

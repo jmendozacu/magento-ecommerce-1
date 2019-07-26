@@ -2,7 +2,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
     <group id="default">
         <job name="addAuthor" instance="EcommerceBuilder\PlatformSetup\Cron\AddAuthor" method="execute">
-            <schedule>* * * * *</schedule>
+            <config_path>author/general/cron_expression</config_path>
         </job>
     </group>
 </config>
