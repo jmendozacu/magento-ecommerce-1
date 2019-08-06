@@ -3,6 +3,9 @@
     <menu>
         <add id="EcommerceBuilder_PlatformSetup::author" title="Author"
              module="EcommerceBuilder_PlatformSetup" resource="EcommerceBuilder_PlatformSetup::author"
-             translate="title" sortOrder="900" action="author"/>
+             translate="title" sortOrder="900" />
+        <add id="EcommerceBuilder_PlatformSetup::author_info" title="Author Info"
+             module="EcommerceBuilder_PlatformSetup" resource="EcommerceBuilder_PlatformSetup::author"
+             translate="title" sortOrder="800" action="author" parent="EcommerceBuilder_PlatformSetup::author"/>
     </menu>
 </config>

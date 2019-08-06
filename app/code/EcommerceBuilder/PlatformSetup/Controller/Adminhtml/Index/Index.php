@@ -8,10 +8,18 @@
 
 namespace EcommerceBuilder\PlatformSetup\Controller\Adminhtml\Index;
 
+use Magento\Backend\App\Action;
 use Magento\Framework\Controller\ResultFactory;
+use Magento\Framework\View\Result\PageFactory;
 
 class Index extends \Magento\Backend\App\Action
 {
+    protected $pageFactory;
+    public function __construct(Action\Context $context, PageFactory $pageFactory)
+    {
+        $this->pageFactory = $pageFactory;
+        parent::__construct($context);
+    }
 
     /**
      * Execute action based on request and return result
@@ -22,6 +30,7 @@ class Index extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-        return $this->resultFactory->create(ResultFactory::TYPE_PAGE);
+        return $this->pageFactory->create();
+        //return $this->resultFactory->create(ResultFactory::TYPE_PAGE);
     }
 }
